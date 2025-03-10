@@ -1,3 +1,4 @@
+// interface for borrowable items
 interface IBorrowable {
     void borrowItem(String borrower);
     void returnItem();
@@ -22,6 +23,7 @@ class Item {
     }
 }
 
+// Book class using author, ISBN, borrowing methods, and Item attributes
 class Book extends Item implements IBorrowable {
     private String author;
     private String ISBN;
@@ -42,6 +44,7 @@ class Book extends Item implements IBorrowable {
         return ISBN;
     }
         // Implement interface methods
+        // Borrow item if not borrowed yet
         public void borrowItem(String borrower) {
             if (this.borrower == null) {
                 this.borrower = borrower;
@@ -51,6 +54,7 @@ class Book extends Item implements IBorrowable {
                 System.out.println("Already Borrowed by: " + this.borrower);
             }
         }
+        // Return item if it has been borrowed
         public void returnItem(){
             if (this.borrower != null) {
                 System.out.println(this.borrower + " has returned the book");
@@ -60,11 +64,13 @@ class Book extends Item implements IBorrowable {
                 System.out.println("This book has not been borrowed");
             }
         }
+        // Return a bool for if the item is borrowed
         public Boolean isBorrowed() {
             return this.borrower != null;
         }
     }
 
+    // Magazine class using issueNumber and Item attributes
 class Magazine extends Item {
     private int issueNumber;
 
