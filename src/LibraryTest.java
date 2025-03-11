@@ -1,11 +1,11 @@
 public class LibraryTest {
     public static void main(String[] args) {
         // Using the factory pattern to create 2 books and 1 magazine
-    Item book1 = LibraryItemFactory.createItem("Book", "Data Structures and Algorithms", "Micahel Goodrich", 1997, "97849340934");
+    Item book1 = LibraryItemFactory.createItem("Book", "Data Structures and Algorithms", 1997, "Micahel Goodrich", "3094242323");
 
-    Item book2 = LibraryItemFactory.createItem("Book", "C++ Programming", "Bjarne Stroustrup", 2013, "0275954902");
+    Item book2 = LibraryItemFactory.createItem("Book", "C++ Programming", 2013, "Bjarne Stroustrup", "0275954902");
 
-    Item magazine = LibraryItemFactory.createItem("Magazine", "The Coding Manual", " ", 2024, "320");
+    Item magazine = LibraryItemFactory.createItem("Magazine", "The Coding Manual", 2024, "320", " ");
 
     // Singleton pattern instance
     Library library = Library.getInstance();
@@ -42,5 +42,15 @@ public class LibraryTest {
     if (book1 instanceof Book) {
         ((Book) book1).borrowItem("John");
        }
+
+    System.out.println("Now we check if the book is borrowed");
+    if (book1 instanceof Book) {
+        if (((Book) book1).isBorrowed()) {
+            System.out.println("The book is already borrowed");
+            }
+        else {
+            System.out.println("The book is not borrowed");
+            }
+        }
     }
 }

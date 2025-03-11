@@ -86,10 +86,10 @@ class Magazine extends Item {
 }
 // Factory pattern class to create a book or magazine
 class LibraryItemFactory {
-    public static Item createItem(String type, String title, String author, int publicationYear, String extraData) {
+    public static Item createItem(String type, String title, int publicationYear, String extraData, String ISBN) {
         // To create a book object
         if (type.equalsIgnoreCase("Book")) {
-            return new Book(title, publicationYear, author, extraData);
+            return new Book(title, publicationYear, extraData, ISBN);
         }
         // To create a magazine object
         else if (type.equalsIgnoreCase("Magazine")) {
